@@ -130,13 +130,16 @@ private fun FavoritesScreenContent(
                 modifier = Modifier.fillMaxWidth(),
                 showBackArrow = false,
                 navActions = {
-                    IconButton(
-                        onClick = onClickDeleteAllFavorites
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.Delete,
-                            contentDescription = null,
-                        )
+                    //Todo: 04/11 Only show delete-all when there are more than one favorites
+                    if (favoriteFilms.size > 1) {
+                        IconButton(
+                            onClick = onClickDeleteAllFavorites
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Delete,
+                                contentDescription = stringResource(R.string.delete_all_favorites),
+                            )
+                        }
                     }
                 }
             )
